@@ -7,6 +7,11 @@ Requirements
 ------------
 In order to build dwm you need the Xlib header files.
 
+If you are running macOS:
+    brew install --cask xquartz
+    brew install freetype
+    (restart might be required)
+
 
 Installation
 ------------

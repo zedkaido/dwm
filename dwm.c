@@ -1842,11 +1842,14 @@ updatebarpos(Monitor *m)
 	m->wy = m->my;
 	m->wh = m->mh;
 	if (m->showbar) {
+		XMapWindow(dpy, m->barwin);
 		m->wh -= bh;
 		m->by = m->topbar ? m->wy : m->wy + m->wh;
 		m->wy = m->topbar ? m->wy + bh : m->wy;
-	} else
-		m->by = -bh;
+	} else {
+		XUnmapWindow(dpy, m->barwin);
+		m->by = m->mh;
+	}
 }
 
 void
